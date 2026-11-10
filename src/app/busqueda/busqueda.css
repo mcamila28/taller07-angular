@@ -1,0 +1,25 @@
+:host { display: block; font-family: system-ui, sans-serif; color: #1f2933; }
+.contenedor { max-width: 760px; margin: 2rem auto; padding: 0 1rem; }
+h1 { margin: 0; font-size: 1.6rem; }
+.sub { margin: .25rem 0 1.25rem; color: #616e7c; }
+.campo { display: flex; flex-direction: column; gap: .35rem; font-weight: 600; }
+input { padding: .65rem .8rem; font-size: 1rem; border: 1px solid #cbd2d9; border-radius: 8px; }
+input:focus { outline: 2px solid #2563eb; border-color: transparent; }
+.contador { margin: .75rem 0; }
+.filtros { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .75rem; }
+.filtros button, .chip { border: 1px solid #cbd2d9; background: #fff; border-radius: 999px; padding: .35rem .85rem; cursor: pointer; }
+.filtros button.activo { background: #1e3a8a; color: #fff; border-color: #1e3a8a; }
+.mensaje { color: #616e7c; font-style: italic; }
+.resumen { font-size: .9rem; color: #3e4c59; }
+.tabla-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid #e4e7eb; }
+th { background: #f5f7fa; }
+.vacio { text-align: center; color: #b91c1c; font-weight: 600; }
+.estado { padding: .15rem .55rem; border-radius: 999px; font-size: .85rem; }
+.estado[data-estado='Pendiente'] { background: #fef3c7; }
+.estado[data-estado='En ruta'] { background: #dbeafe; }
+.estado[data-estado='Entregado'] { background: #dcfce7; }
+.historial { margin-top: 1.5rem; }
+.historial h2 { font-size: 1rem; }
+.chip { margin: 0 .4rem .4rem 0; }

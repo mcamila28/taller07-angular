@@ -1,0 +1,62 @@
+<main class="contenedor">
+  <header>
+    <h1>Domicilios de medicamentos</h1>
+    <p class="sub">Búsqueda reactiva por barrio o producto · Taller 07</p>
+  </header>
+
+  <label class="campo">
+    <span>Buscar</span>
+    <input type="search" [formControl]="busqueda" placeholder="Ej.: villa, losartan, centro" autocomplete="off" />
+  </label>
+
+  <p class="contador">Llamadas al servicio: <strong>{{ llamadas() }}</strong></p>
+
+  <div class="filtros" role="group" aria-label="Filtro por estado">
+    @for (e of estados; track e) {
+      <button type="button" [class.activo]="filtro() === e" (click)="filtro.set(e)">
+        {{ e }} ({{ conteoResultado()[e] }})
+      </button>
+    }
+  </div>
+
+  @if (textoActual().length < 2) {
+    <p class="mensaje">Escriba mínimo 2 caracteres para buscar.</p>
+  } @else if (buscando()) {
+    <p class="mensaje">Buscando…</p>
+  } @else {
+    <p class="resumen">
+      Mostrando {{ resumen().total }} ·
+      Pendiente {{ resumen().porEstado['Pendiente'] }} ·
+      En ruta {{ resumen().porEstado['En ruta'] }} ·
+      Entregado {{ resumen().porEstado['Entregado'] }}
+    </p>
+    <div class="tabla-scroll">
+      <table>
+        <thead>
+          <tr><th>Cód.</th><th>Barrio</th><th>Producto</th><th>Estado</th></tr>
+        </thead>
+        <tbody>
+          @for (d of visibles(); track d.codigo) {
+            <tr>
+              <td>{{ d.codigo }}</td>
+              <td>{{ d.barrio }}</td>
+              <td>{{ d.producto }}</td>
+              <td><span class="estado" [attr.data-estado]="d.estado">{{ d.estado }}</span></td>
+            </tr>
+          } @empty {
+            <tr><td colspan="4" class="vacio">Sin coincidencias</td></tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+
+  <section class="historial">
+    <h2>Últimas consultas</h2>
+    @for (h of historial(); track $index) {
+      <button type="button" class="chip" (click)="usarHistorial(h)">{{ h }}</button>
+    } @empty {
+      <p class="mensaje">Aún no hay consultas.</p>
+    }
+  </section>
+</main>
