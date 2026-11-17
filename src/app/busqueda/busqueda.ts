@@ -1,5 +1,6 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import {
   debounceTime, defer, distinctUntilChanged, filter, finalize, map, of, share, switchMap,
@@ -11,7 +12,7 @@ type Filtro = 'Todos' | EstadoDomicilio;
 
 @Component({
   selector: 'app-busqueda',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './busqueda.html',
   styleUrl: './busqueda.css',
 })

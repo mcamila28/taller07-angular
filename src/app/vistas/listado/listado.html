@@ -1,0 +1,36 @@
+<div class="encabezado">
+  <h1>Domicilios</h1>
+  <div class="acciones">
+    <a class="boton secundario" routerLink="/domicilios/buscar">Buscar</a>
+    <a class="boton" routerLink="/domicilios/nuevo">+ Nuevo domicilio</a>
+  </div>
+</div>
+
+<div class="filtros" role="group" aria-label="Filtro por estado">
+  <a routerLink="." [queryParams]="{ estado: null }" [class.activo]="!estado()">Todos</a>
+  @for (e of estados; track e) {
+    <a routerLink="." [queryParams]="{ estado: e }" [class.activo]="estado() === e">{{ e }}</a>
+  }
+</div>
+
+<p class="total">{{ visibles().length }} registro(s){{ estado() ? ' · estado: ' + estado() : '' }}</p>
+
+<div class="tabla-scroll">
+  <table>
+    <thead>
+      <tr><th>Cód.</th><th>Barrio</th><th>Producto</th><th>Estado</th></tr>
+    </thead>
+    <tbody>
+      @for (d of visibles(); track d.codigo) {
+        <tr>
+          <td><a [routerLink]="[d.codigo]">{{ d.codigo }}</a></td>
+          <td>{{ d.barrio }}</td>
+          <td>{{ d.producto }}</td>
+          <td><span class="estado" [attr.data-estado]="d.estado">{{ d.estado }}</span></td>
+        </tr>
+      } @empty {
+        <tr><td colspan="4" class="alerta">0 registros con el estado «{{ estado() }}».</td></tr>
+      }
+    </tbody>
+  </table>
+</div>

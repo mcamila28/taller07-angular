@@ -1,0 +1,11 @@
+.encabezado { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .75rem; }
+h1 { margin: 0; font-size: 1.5rem; }
+.acciones { display: flex; gap: .5rem; }
+.secundario { background: #fff; color: #1e3a8a; border: 1px solid #1e3a8a; }
+.filtros { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0 .5rem; }
+.filtros a { border: 1px solid #cbd2d9; background: #fff; border-radius: 999px; padding: .35rem .85rem;
+  text-decoration: none; color: #1f2933; }
+.filtros a.activo { background: #1e3a8a; color: #fff; border-color: #1e3a8a; }
+.total { color: #3e4c59; font-size: .9rem; }
+.tabla-scroll { overflow-x: auto; }
+td a { color: #1e3a8a; font-weight: 600; }

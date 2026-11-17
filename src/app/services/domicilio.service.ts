@@ -31,6 +31,14 @@ export class DomicilioService {
   private readonly _llamadas = signal(0);
   readonly llamadas = this._llamadas.asReadonly();
 
+  /** T08: alta. Crea el registro con el siguiente código (D13, D14…) y lo devuelve. */
+  agregar(datos: Omit<Domicilio, 'codigo'>): string {
+    const max = Math.max(0, ...this._domicilios().map((d) => Number(d.codigo.slice(1))));
+    const codigo = 'D' + String(max + 1).padStart(2, '0');
+    this._domicilios.update((lista) => [...lista, { codigo, ...datos }]);
+    return codigo;
+  }
+
   /** 2. Busca en barrio y producto. Retardo: max(150, 1500 − 300 × longitud). */
   buscar(texto: string): Observable<Domicilio[]> {
     this._llamadas.update((n) => n + 1);

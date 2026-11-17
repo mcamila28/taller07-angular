@@ -1,0 +1,8 @@
+:host { display: block; font-family: system-ui, sans-serif; color: #1f2933; }
+.barra { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem;
+  padding: .8rem 1.5rem; background: #1e3a8a; }
+.marca { color: #fff; font-weight: 700; text-decoration: none; }
+nav { display: flex; gap: .4rem; flex-wrap: wrap; }
+nav a { color: #dbeafe; text-decoration: none; padding: .35rem .8rem; border-radius: 999px; }
+nav a.activo { background: #fff; color: #1e3a8a; font-weight: 600; }
+.contenido { max-width: 820px; margin: 1.5rem auto; padding: 0 1rem; }

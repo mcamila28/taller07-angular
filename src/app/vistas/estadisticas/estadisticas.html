@@ -1,0 +1,17 @@
+<h1>Estadísticas</h1>
+<p class="total">Total de domicilios: <strong>{{ total() }}</strong></p>
+
+<div class="rejilla">
+  <section class="tarjeta">
+    <h2>Por estado</h2>
+    @for (e of porEstado(); track e.nombre) {
+      <p><a routerLink="/domicilios" [queryParams]="{ estado: e.nombre }">{{ e.nombre }}</a>: {{ e.cantidad }}</p>
+    }
+  </section>
+  <section class="tarjeta">
+    <h2>Por barrio</h2>
+    @for (b of porBarrio(); track b.nombre) {
+      <p>{{ b.nombre }}: {{ b.cantidad }}</p>
+    }
+  </section>
+</div>

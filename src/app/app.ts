@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { Busqueda } from './busqueda/busqueda';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [Busqueda],
-  template: `<app-busqueda />`,
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  templateUrl: './app.html',
+  styleUrl: './app.css',
 })
 export class App {}

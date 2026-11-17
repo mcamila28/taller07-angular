@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+body { margin: 0; background: #f8fafc; }
+table { width: 100%; border-collapse: collapse; background: #fff; }
+th, td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid #e4e7eb; }
+th { background: #f1f5f9; }
+.estado { padding: .15rem .55rem; border-radius: 999px; font-size: .85rem; }
+.estado[data-estado='Pendiente'] { background: #fef3c7; }
+.estado[data-estado='En ruta'] { background: #dbeafe; }
+.estado[data-estado='Entregado'] { background: #dcfce7; }
+.boton { display: inline-block; background: #1e3a8a; color: #fff; border: 0; border-radius: 8px;
+  padding: .5rem 1rem; text-decoration: none; cursor: pointer; font-size: .95rem; }
+.boton:disabled { opacity: .5; cursor: not-allowed; }
+.mensaje { color: #616e7c; font-style: italic; }
+.alerta { color: #b91c1c; font-weight: 600; }
+.tarjeta { background: #fff; border: 1px solid #e4e7eb; border-radius: 10px; padding: 1rem 1.25rem; }

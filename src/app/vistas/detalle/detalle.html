@@ -1,0 +1,12 @@
+<p><a routerLink="/domicilios">← Volver al listado</a></p>
+
+@if (domicilio(); as d) {
+  <article class="tarjeta">
+    <h1>Domicilio {{ d.codigo }}</h1>
+    <p><strong>Barrio:</strong> {{ d.barrio }}</p>
+    <p><strong>Producto:</strong> {{ d.producto }}</p>
+    <p><strong>Estado:</strong> <span class="estado" [attr.data-estado]="d.estado">{{ d.estado }}</span></p>
+  </article>
+} @else {
+  <p class="alerta">No existe el domicilio {{ id() }}.</p>
+}

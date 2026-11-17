@@ -1,0 +1,28 @@
+<p><a routerLink="/domicilios">← Volver al listado</a></p>
+<h1>Nuevo domicilio</h1>
+
+<form class="tarjeta" [formGroup]="form" (ngSubmit)="guardar()">
+  <label>Barrio
+    <input formControlName="barrio" placeholder="Ej.: Centro" />
+  </label>
+  @if (form.controls.barrio.touched && form.controls.barrio.invalid) {
+    <small class="alerta">El barrio es obligatorio (mínimo 3 caracteres).</small>
+  }
+
+  <label>Producto
+    <input formControlName="producto" placeholder="Ej.: Insulina" />
+  </label>
+  @if (form.controls.producto.touched && form.controls.producto.invalid) {
+    <small class="alerta">El producto es obligatorio (mínimo 3 caracteres).</small>
+  }
+
+  <label>Estado
+    <select formControlName="estado">
+      @for (e of estados; track e) {
+        <option [value]="e">{{ e }}</option>
+      }
+    </select>
+  </label>
+
+  <button class="boton" type="submit" [disabled]="form.invalid">Guardar</button>
+</form>

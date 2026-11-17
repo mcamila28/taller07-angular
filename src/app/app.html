@@ -1,0 +1,11 @@
+<header class="barra">
+  <a class="marca" routerLink="/">Domicilios de medicamentos</a>
+  <nav>
+    <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+    <a routerLink="/domicilios" routerLinkActive="activo">Domicilios</a>
+    <a routerLink="/estadisticas" routerLinkActive="activo">Estadísticas</a>
+  </nav>
+</header>
+<main class="contenido">
+  <router-outlet />
+</main>
