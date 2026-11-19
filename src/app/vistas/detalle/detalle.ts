@@ -1,4 +1,3 @@
-// Vista de detalle por código
 import { Component, computed, inject, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { DomicilioService } from '../../services/domicilio.service';
