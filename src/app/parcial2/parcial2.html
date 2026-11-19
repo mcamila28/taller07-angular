@@ -1,0 +1,52 @@
+<h2>Parcial 2</h2>
+
+<!-- R1 -->
+<form [formGroup]="form" (ngSubmit)="enviar()" novalidate>
+  <label>
+    Código
+    <input formControlName="codigo" placeholder="AB123" />
+  </label>
+  @if (mostrar(form.controls.codigo)) {
+    @if (form.controls.codigo.hasError('required')) {
+      <small class="error">El código es obligatorio.</small>
+    }
+    @if (form.controls.codigo.hasError('pattern')) {
+      <small class="error">Formato: dos letras mayúsculas y tres dígitos.</small>
+    }
+  }
+
+  <label>
+    Cantidad
+    <input type="number" formControlName="cantidad" />
+  </label>
+  @if (mostrar(form.controls.cantidad)) {
+    @if (form.controls.cantidad.hasError('required')) {
+      <small class="error">La cantidad es obligatoria.</small>
+    }
+    @if (form.controls.cantidad.hasError('min')) {
+      <small class="error">Mínimo 1. (min)</small>
+    }
+    @if (form.controls.cantidad.hasError('max')) {
+      <small class="error">Máximo {{ TOPE }}. (max)</small>
+    }
+    @if (form.controls.cantidad.hasError('multiplo')) {
+      <small class="error">Debe ser múltiplo de {{ M }}. (multiplo)</small>
+    }
+  }
+
+  <fieldset formGroupName="rango">
+    <label>
+      Desde
+      <input type="number" formControlName="desde" />
+    </label>
+    <label>
+      Hasta
+      <input type="number" formControlName="hasta" />
+    </label>
+  </fieldset>
+  @if (mostrar(form.controls.rango) && form.controls.rango.hasError('hastaMayor')) {
+    <small class="error">«Hasta» debe ser mayor que «desde». (hastaMayor)</small>
+  }
+
+  <button type="submit">Enviar</button>
+</form>

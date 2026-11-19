@@ -4,6 +4,7 @@ import { Detalle } from './vistas/detalle/detalle';
 import { Alta } from './vistas/alta/alta';
 import { NoEncontrada } from './vistas/no-encontrada/no-encontrada';
 import { Busqueda } from './busqueda/busqueda';
+import { Parcial2 } from './parcial2/parcial2';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'domicilios', pathMatch: 'full' },
@@ -17,5 +18,7 @@ export const routes: Routes = [
     loadComponent: () => import('./vistas/estadisticas/estadisticas').then((m) => m.Estadisticas),
     title: 'Estadísticas',
   },
+  { path: 'parcial2', component: Parcial2, title: 'Parcial 2' },
   { path: '**', component: NoEncontrada, title: 'Página no encontrada' },
 ];
+
