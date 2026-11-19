@@ -1,0 +1,15 @@
+<h2>Detalle</h2>
+@if (valido()) {
+  <dl>
+    <dt>Código</dt>
+    <dd>{{ codigo() }}</dd>
+    <dt>Cantidad</dt>
+    <dd>{{ cantidad() }}</dd>
+    <dt>Bloques</dt>
+    <dd>{{ bloques() }}</dd>
+    <dt>Margen</dt>
+    <dd>{{ margen() }}</dd>
+  </dl>
+} @else {
+  <p class="error">Código inválido</p>
+}

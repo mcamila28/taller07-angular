@@ -5,6 +5,7 @@ import { Alta } from './vistas/alta/alta';
 import { NoEncontrada } from './vistas/no-encontrada/no-encontrada';
 import { Busqueda } from './busqueda/busqueda';
 import { Parcial2 } from './parcial2/parcial2';
+import { DetalleParcial } from './parcial2/detalle/detalle-parcial';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'domicilios', pathMatch: 'full' },
@@ -19,6 +20,6 @@ export const routes: Routes = [
     title: 'Estadísticas',
   },
   { path: 'parcial2', component: Parcial2, title: 'Parcial 2' },
+  { path: 'parcial2/detalle/:codigo', component: DetalleParcial, title: 'Detalle parcial' },
   { path: '**', component: NoEncontrada, title: 'Página no encontrada' },
 ];
-
