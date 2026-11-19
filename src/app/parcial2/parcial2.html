@@ -1,6 +1,6 @@
 <h2>Parcial 2</h2>
 
-<!-- R1 -->
+
 <form [formGroup]="form" (ngSubmit)="enviar()" novalidate>
   <label>
     Código
@@ -50,3 +50,19 @@
 
   <button type="submit">Enviar</button>
 </form>
+
+
+<label>
+  Buscar
+  <input [formControl]="buscar" placeholder="barrio o producto" />
+</label>
+<p>Último valor: {{ busqueda().valor }}</p>
+<p>Emisiones: {{ busqueda().n }}</p>
+
+<ul>
+  @for (d of resultados(); track d.codigo) {
+    <li>{{ d.codigo }} · {{ d.barrio }} · {{ d.producto }} · {{ d.estado }}</li>
+  } @empty {
+    <li>Sin resultados.</li>
+  }
+</ul>
